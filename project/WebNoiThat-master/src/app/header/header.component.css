@@ -70,7 +70,7 @@
 }
 .header-content .logo{
     font-size: 25px;
-    margin: 0 30px;
+    margin: 0 60px;
 }
 .header-content a{
     color: #ffffff;
@@ -87,8 +87,7 @@
     margin-left: 30px;
 }
 /* thanh navbar*/
-.menu .nav-bar{
-    /* float: left; */
+/* .menu .nav-bar{
     background-color: #1F2833;
     flex: 1;
     height:40px ;
@@ -173,97 +172,162 @@
     left: 50%;
     font-size: 15px;
     display: none;
+} */
+.menu{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: #353b48;
+    align-items: center;
 }
-@media (min-width: 360px){
+.nav-bar{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #353b48;
+}
+.nav-bar ul{
+    display: flex;
     
-    .wrapper .container .products .filter .searchproduct input[type="text"]{
-        margin-top: 10px;
-        margin-bottom: 5px;
-    }
-    .menu .searchbar input[type="text"]{
-        display: none;
-    }
-    .menu .searchbar .iconsearch {
-        display: none;
-    }
-    .menu .nav-bar {
-        flex:5;
-    }
-    .menu .nav-bar ul li a{
-        font-size: 12px;
-    }
-    .footer-content .info a{
-        text-align: center;
-    }
-    .footer-content .contact{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* for Trang chủ */
-    .banner #carouselExampleIndicators{
-        height: auto;
-        width: auto;
-    }
-    .banner .right-banner{
-        display: none;
-    }
-    .wrapper .container .product-row{
-        flex-direction: column;
-    }
-    .wrapper .team .members{
-        flex-direction: column;
-    }
-    .wrapper .container h3{
-        margin-left: 0;
-    }
+    align-items: center;
+    margin: 0;
+    padding-left: 3.5rem;
+    
+}
+.nav-bar ul li{
+    margin: 0;
+    padding: 0.5rem 1rem;
+}
+.nav-bar ul li:hover{
+    background-color: #00a8ff;
+}
+.nav-bar ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.searchbar{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+.searchbar input[type="text"]{
+    height: 25px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding-left: 5px;
+}
+.searchbar input[type="text"]:focus{
+    outline: none;
+}
+.searchbar button{
+    height: 25px;
+    width: 25px;
+    border: none;
+    border-radius: 50%;
+    background-color: #0B0C10;
+}
+.searchbar button:hover{
+    background-color: #EA2027;
+}
+.searchbar button:hover >i{
+    color: #ffffff;
+}
+.searchbar button i{
+    color: #18dcff;
+}
+.cart{
+    display: flex;
+    padding: 0 2rem;
+}
+.cart a{
+    color: #ffffff;
+}
+.cart i{
+    font-size: 18px;
+}
+.cart-number{
+    padding: 1px 7px;
+    background-color: #3867d6;
+    border-radius: 28px;
+    color: #ffffff;
+}
+form{
+    border: 1px solid #000000;
+    padding: 2px;
+    background-color: #ffffff;
+    border-radius: 30px;
+}
+form:focus-within{
+    border: #EA2027 1px solid;
+}
+.toggle-btn{
+    margin-right: 20px;
+    display: none;
+    cursor: pointer;
+    margin-left: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 555px){
+    
     .logo img{
         display: none;
     }
     .account p{
         display: none;
     }
+    
 }
 
-@media (min-width: 768px){
+@media (max-width: 840px){
 
-    .menu .searchbar input[type="text"]{
-        opacity: 1;
+    .nav-bar{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        z-index: 2;
+        top:80px;
+        
     }
-    .menu .searchbar .iconsearch {
-        opacity: 1;
-    }
-    .menu .nav-bar {
-        flex:1;
-    }
-    .menu .nav-bar ul li a{
-        font-size: 1rem;
-    }
-    .menu .searchbar input[type="text"]{
+    .nav-bar.active{
         display: block;
     }
-    .menu .searchbar .iconsearch {
+    .nav-bar ul{
         display: block;
+        text-align: center;
+        padding-left: 0;
     }
-    /* for trang chủ */
-    .banner #carouselExampleIndicators{
-        width: 800px;
-        height: 400px;
+    .nav-bar ul li{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
-    .banner .right-banner{
-        display: flex;
+    .nav-bar ul li:first-child{
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
     }
-    .wrapper .container .product-row{
-        flex-direction: row;
+    .searchbar{
+        justify-content: center;
+        flex-direction: column;
     }
-    .wrapper .team .members{
-        flex-direction: row;
+    form{
+        margin: 0.5rem;
     }
-    .wrapper .container h3{
-        margin-left: 0;
+    .cart{
+        width: 100%;
+        padding: 0.5rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        justify-content: center;
     }
+    .toggle-btn{
+        display: block;
+        
+    }
+}
+@media (min-width: 841px){
+
 }
 
 /* ACCCCCCCCOUNT */
@@ -283,9 +347,11 @@
 .account-menu button{
     padding: 5px 10px;
     margin-left: 5px;
-    background-color: #484a4d;
+    /* background-color: #484a4d; */
+    background-color: #0B0C10;
+    border: 2px solid #484a4d;
     border-radius: 15px;
-    border: none;
+    /* border: none; */
     
 }
 .account-menu button:focus{
@@ -293,17 +359,45 @@
 }
 .account-menu button i{
     color: #ffffff;
+    transition: 0.4s;
+}
+.account-menu i.clicked{
+    -webkit-transform: rotate(180deg) ;
+  transform: rotate(180deg) ;
 }
 .account-menu-content a{
     display: block;
-    margin: 5px 0;
+    /* margin: 5px 0; */
 }
 .account-menu-content{
     position: absolute;
-    left: 10px;
-    top:40px;
+    /* left: 10px;
+    top:40px; */
+    right: 0;
     background-color: #484a4d;
     padding: 10px 25px 10px 0;
     display: none;
-    z-index: 1;
+    z-index: 3;
 }
+.account-menu-content.active{
+    display: block;
+}
+.bar1, .bar2, .bar3 {
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+.bar1.change{
+    -webkit-transform: rotate(-45deg) translate(-5px, 5px);
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+  
+.bar2.change {opacity: 0;}
+  
+.bar3.change{
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+  

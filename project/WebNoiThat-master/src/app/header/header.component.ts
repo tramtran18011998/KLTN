@@ -21,7 +21,9 @@ export class HeaderComponent implements OnInit {
   //currentName: string= this.user.name;
   inSocial: any;
   public value="";
-
+  public show: boolean=false;
+  public check:boolean=false;
+  public btnacc:boolean=false;
   constructor(private token: TokenStorageService, private router: Router,private userService: UserService, private cartService: CartService) { }
 
   ngOnInit() {
@@ -75,16 +77,20 @@ export class HeaderComponent implements OnInit {
     
   }
   showAccMenu(){
-    let x=document.getElementById("accMenu");
-    if(x.style.display=="none"){
-      x.style.display="block";
-    }
-    else
-    x.style.display="none";
+    // let x=document.getElementById("accMenu");
+    // if(x.style.display=="none"){
+    //   x.style.display="block";
+    // }
+    // else{
+    //   x.style.display="none";
+    // }
+    this.btnacc=!this.btnacc;
   }
   navigateSearch(value){
     localStorage.setItem("searchval",value);
     this.router.navigate(['product']);
   }
-
+  toogleBtn(){
+    this.check=!this.check;
+  }
 }
