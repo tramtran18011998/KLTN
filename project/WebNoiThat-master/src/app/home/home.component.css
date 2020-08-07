@@ -1,5 +1,5 @@
 /*-----------------------------Banner*/
-.banner{
+/* .banner{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,16 +10,13 @@
     height: 400px;
     margin: 5px;
     overflow: hidden;
-    /* object-fit: cover;                                              NOTEEEEEEEEEEEEEEEEEEEEEEEEEEEE */
 }
 .banner #carouselExampleIndicators .carousel-inner .carousel-item{
     object-fit: cover;
     width:800px;
     height:400px;
 }
-/* .banner #carouselExampleIndicators .carousel-inner .carousel-item img{
-    
-} */
+
 .banner .right-banner{
     display: flex;
     justify-content: space-around;
@@ -32,7 +29,47 @@
     width: 450px;
     height: 195px;
     margin: 5px 0 5px 10px;
+} */
+.slider{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "slider img1"
+                        "slider img2";
+    grid-gap: 0.2rem;
+
 }
+#carouselExampleIndicators{
+    grid-area: slider;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.carousel-indicators{
+    z-index: 1 !important;
+}
+#banner1{
+    grid-area: img1;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+#banner2{
+    grid-area: img2;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.carousel-indicators li{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+.banner >.container{
+    padding-left: 0;
+    padding-right: 0;
+}
+
 /* --------------------Sản phẩm mới */
 
 .wrapper .container {
@@ -71,6 +108,7 @@
     height: 309px;
     
 }
+
 .wrapper .container .product-row .product-card img{
     /* width: 250px;
     height: 250px; */
@@ -170,34 +208,9 @@
 }
 @media (min-width: 360px){
     
-    .wrapper .container .products .filter .searchproduct input[type="text"]{
-        margin-top: 10px;
-        margin-bottom: 5px;
-    }
-    .menu .searchbar input[type="text"]{
-        display: none;
-    }
-    .menu .searchbar .iconsearch {
-        display: none;
-    }
-    .menu .nav-bar {
-        flex:5;
-    }
-    .menu .nav-bar ul li a{
-        font-size: 12px;
-    }
-    .footer-content .info a{
-        text-align: center;
-    }
-    .footer-content .contact{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
 
     /* for Trang chủ */
-    .banner #carouselExampleIndicators{
+    /* .banner #carouselExampleIndicators{
         height: 100%;
         width: 100%;
     }
@@ -212,31 +225,12 @@
     }
     .wrapper .container h3{
         margin-left: 0;
-    }
+    } */
 }
 
 @media (min-width: 768px){
 
-    .menu .searchbar input[type="text"]{
-        opacity: 1;
-    }
-    .menu .searchbar .iconsearch {
-        opacity: 1;
-    }
-    .menu .nav-bar {
-        flex:1;
-    }
-    .menu .nav-bar ul li a{
-        font-size: 1rem;
-    }
-    .menu .searchbar input[type="text"]{
-        display: block;
-    }
-    .menu .searchbar .iconsearch {
-        display: block;
-    }
-    /* for trang chủ */
-    .banner #carouselExampleIndicators{
+    /* .banner #carouselExampleIndicators{
         width: 800px;
         height: 400px;
     }
@@ -251,5 +245,5 @@
     }
     .wrapper .container h3{
         margin-left: 0;
-    }
+    } */
 }
