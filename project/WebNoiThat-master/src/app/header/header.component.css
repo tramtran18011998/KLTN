@@ -277,9 +277,9 @@ form:focus-within{
 }
 @media (max-width: 555px){
     
-    .logo img{
+    /* .logo img{
         display: none;
-    }
+    } */
     .account p{
         display: none;
     }
