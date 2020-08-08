@@ -233,15 +233,17 @@
     border: none;
     border-radius: 50%;
     background-color: #0B0C10;
+    transition: all 1s ease;
 }
 .searchbar button:hover{
-    background-color: #EA2027;
+    background-color: #18dcff;
 }
 .searchbar button:hover >i{
-    color: #ffffff;
+    color: #0B0C10;
 }
 .searchbar button i{
     color: #18dcff;
+    transition: all 1s ease;
 }
 .cart{
     display: flex;
@@ -260,13 +262,15 @@
     color: #ffffff;
 }
 form{
-    border: 1px solid #000000;
+    border: 2px solid #000000;
     padding: 2px;
     background-color: #ffffff;
     border-radius: 30px;
+    transition: all 0.5s ease;
 }
 form:focus-within{
-    border: #EA2027 1px solid;
+    /* border: #EA2027 2px solid; */
+    border: #18dcff 2px solid;
 }
 .toggle-btn{
     margin-right: 20px;
