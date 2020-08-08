@@ -34,6 +34,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    overflow: hidden;
 }
 .wrapper .container .product-img .mini-img img{
     width: 80px;
@@ -387,5 +388,7 @@
 }
 
 
-
+.big-img:hover >img{
+    object-fit: none;
+}
 

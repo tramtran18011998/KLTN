@@ -87,7 +87,6 @@ export class ProductpageComponent implements OnInit {
       // }
     }, error => console.log(error));
 
-
   }
 
   ImageClick(value: string) {
@@ -173,5 +172,11 @@ export class ProductpageComponent implements OnInit {
   //     }
   //   })
   // }
-
+  getPos(event){
+    let img= document.getElementById("current-img");
+    let x=event.offsetX/img.offsetWidth*100;
+    let y=event.offsetY/img.offsetHeight*100;
+    img.style.objectPosition=`${x}% ${y}%`;
+  }
+  
 }

@@ -9,7 +9,7 @@
 <div class="wrapper">
     <div class="container">
         <div class="product-img">
-            <div class="big-img">
+            <div class="big-img" (mousemove)="getPos($event)">
                 <img src="https://localhost:8443/api/productimage/{{currentImg}}" alt="hinhsanpham" id="current-img">
             </div>
             <div class="mini-img">
