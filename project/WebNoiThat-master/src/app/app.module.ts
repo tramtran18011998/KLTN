@@ -61,6 +61,7 @@ import { AdReceiptEditComponent } from './admin/admin-receipt/ad-receipt-edit/ad
 import { OAuth2RedirectHandlerComponent } from './corecontrol/auth/oauth2-redirect-handler/oauth2-redirect-handler.component';
 import { CarthistoryComponent } from './carthistory/carthistory.component';
 import { AdminChartComponent } from './admin/admin-chart/admin-chart.component';
+import { GotopbtnComponent } from './gotopbtn/gotopbtn.component';
 
 
 
@@ -110,6 +111,7 @@ import { AdminChartComponent } from './admin/admin-chart/admin-chart.component';
     OAuth2RedirectHandlerComponent,
     CarthistoryComponent,
     AdminChartComponent,
+    GotopbtnComponent,
    
     
   ],
