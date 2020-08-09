@@ -367,7 +367,7 @@
     height: 235px;
     cursor: pointer;
     object-fit: cover;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }
 .wrapper .container1 .product-row .product-name a{
     margin-bottom: 0;
@@ -390,5 +390,8 @@
 
 .big-img:hover >img{
     object-fit: none;
+}
+.product-card {
+    overflow: hidden;
 }
 

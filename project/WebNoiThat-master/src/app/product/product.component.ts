@@ -137,15 +137,14 @@ export class ProductComponent implements OnInit {
       } else if (this.intSelect == 2) {
         this.productService.getListPageAsc(0).subscribe(data => {
           this.products2 = [...data.content];
+          console.log(this.products2);
           if (data)
             this.products = [];
           this.imgname = [];
-          for (let i = this.products2[0].id; i < this.products2.length + this.products2[0].id; i++) {
-            this.productService.getProductImgByProductIdLimit(i).subscribe(data1 => {
-              if (i === data1.product.id) {
-                this.products.push(data1.product);
+          for (let i = 0; i < this.products2.length; i++) {
+            this.products.push(this.products2[i]);
+            this.productService.getProductImgByProductIdLimit(this.products2[i].id).subscribe(data1 => {
                 this.imgname.push(data1.name);
-              }
             })
           }
           console.log(this.imgname);
@@ -157,12 +156,10 @@ export class ProductComponent implements OnInit {
           if (data)
             this.products = [];
           this.imgname = [];
-          for (let i = this.products2[0].id; i < this.products2.length + this.products2[0].id; i++) {
-            this.productService.getProductImgByProductIdLimit(i).subscribe(data1 => {
-              if (i === data1.product.id) {
-                this.products.push(data1.product);
+          for (let i = 0; i < this.products2.length; i++) {
+            this.products.push(this.products2[i]);
+            this.productService.getProductImgByProductIdLimit(this.products2[i].id).subscribe(data1 => {
                 this.imgname.push(data1.name);
-              }
             })
           }
           console.log(this.imgname);
@@ -185,58 +182,60 @@ export class ProductComponent implements OnInit {
   }
 
   onChangedPage(event) {
-
-    if (this.intSelect == 1 && this.clickCateType == false) {
-      this.productService.getListPage(event.pageIndex).subscribe(data => {
-        this.products2 = [...data.content];
-        if (data)
-          this.products = [];
-        this.imgname = [];
-        for (let i = this.products2[0].id; i < this.products2.length + this.products2[0].id; i++) {
-          this.productService.getProductImgByProductIdLimit(i).subscribe(data1 => {
-            if (i === data1.product.id) {
-              this.products.push(data1.product);
-              this.imgname.push(data1.name);
-            }
-          })
-        }
-        console.log(this.imgname);
-        console.log(this.products);
-      });
-    } else if (this.intSelect == 2 && this.clickCateType == false) {
-      this.productService.getListPageAsc(event.pageIndex).subscribe(data => {
-        this.products2 = [...data.content];
-        if (data)
-          this.products = [];
-        this.imgname = [];
-        for (let i = this.products2[0].id; i < this.products2.length + this.products2[0].id; i++) {
-          this.productService.getProductImgByProductIdLimit(i).subscribe(data1 => {
-            if (i === data1.product.id) {
-              this.products.push(data1.product);
-              this.imgname.push(data1.name);
-            }
-          })
-        }
-        console.log(this.imgname);
-        console.log(this.products);
-      });
-    } else {
-      this.productService.getListPageDesc(event.pageIndex).subscribe(data4 => {
-        this.products2 = [...data4.content];
-        if (data4)
-          this.products = [];
-        this.imgname = [];
-        for (let i = this.products2[0].id; i < this.products2.length + this.products2[0].id; i++) {
-          this.productService.getProductImgByProductIdLimit(i).subscribe(data1 => {
-            if (i === data1.product.id) {
-              this.products.push(data1.product);
-              this.imgname.push(data1.name);
-            }
-          })
-        }
-
-      });
+    if(this.searchval==null){
+      if (this.intSelect == 1 && this.clickCateType == false) {
+        this.productService.getListPage(event.pageIndex).subscribe(data => {
+          this.products2 = [...data.content];
+          if (data)
+            this.products = [];
+          this.imgname = [];
+          for (let i = this.products2[0].id; i < this.products2.length + this.products2[0].id; i++) {
+            this.productService.getProductImgByProductIdLimit(i).subscribe(data1 => {
+              if (i === data1.product.id) {
+                this.products.push(data1.product);
+                this.imgname.push(data1.name);
+              }
+            })
+          }
+          console.log(this.imgname);
+          console.log(this.products);
+        });
+      } else if (this.intSelect == 2 && this.clickCateType == false) {
+        this.productService.getListPageAsc(event.pageIndex).subscribe(data => {
+          this.products2 = [...data.content];
+          console.log("Ơ ????")
+          console.log(this.products2);
+          if (data)
+            this.products = [];
+          this.imgname = [];
+          for (let i = 0; i < this.products2.length; i++) {
+            this.products.push(this.products2[i]);
+            this.productService.getProductImgByProductIdLimit(this.products2[i].id).subscribe(data1 => {
+                this.imgname.push(data1.name);
+            })
+          }
+          console.log(this.imgname);
+          console.log(this.products);
+        });
+      } else {
+        this.productService.getListPageDesc(event.pageIndex).subscribe(data4 => {
+          this.products2 = [...data4.content];
+          if (data4)
+            this.products = [];
+          this.imgname = [];
+          for (let i = 0; i < this.products2.length; i++) {
+            this.products.push(this.products2[i]);
+            this.productService.getProductImgByProductIdLimit(this.products2[i].id).subscribe(data1 => {
+                this.imgname.push(data1.name);
+            })
+          }
+  
+        });
+      }
+    }else{
+      this.searchProduct(this.searchval);
     }
+    
 
 
 
@@ -305,26 +304,7 @@ export class ProductComponent implements OnInit {
     console.log("Checkkkkkk??" + val);
     if (val != "") {
 
-      // this.productService.getListSearch(val).subscribe(data => {
-      //   this.products2 = data;
-      //   if (data) {
-      //     this.products = [];
-      //     this.imgname = [];
-      //     for (let i = 0; i < this.products2.length; i++) {
-      //       this.productService.getProductImgByProductIdLimit(this.products2[i].id).subscribe(data1 => {
-
-      //         if (this.products2[i].id === data1.product.id) {
-      //           this.products.push(data1.product);
-      //           this.imgname.push(data1.name);
-      //           console.log(this.imgname);
-      //         }
-      //       })
-      //     }
-      //     this.totalProduct = this.products2.length;
-      //     this.productsPerPage = this.totalProduct;
-      //   }
-
-      // })
+      
       this.productService.getListSearch(val).subscribe(data => {
         this.products = data;
         this.imgname = [];
