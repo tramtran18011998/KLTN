@@ -31,7 +31,11 @@
             
         <div>
             <div style="float: none;margin: auto;">
-                <div class="file btn btn-lg btn-primary" style="position: relative;overflow: hidden; margin-left: 170px;">Upload
+                <div class="file btn btn-lg btn-primary" style="position: absolute;
+                overflow: hidden;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);">Upload
                     <input style="position: absolute; font-size: 50px;opacity: 0;right: 0; top: 0;" type="file" name="file"
                         (change)="selectImage($event)" />
                 </div>
