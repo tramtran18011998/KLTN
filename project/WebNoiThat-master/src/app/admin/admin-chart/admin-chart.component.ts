@@ -101,7 +101,7 @@ export class AdminChartComponent implements OnInit {
         this.yReve = data;
 
         this.receiptService.getListTotal().subscribe(data =>{
-          
+          console.log(data);
           this.xReve = data;
 
           this.line = new Chart('line', {
@@ -130,6 +130,7 @@ export class AdminChartComponent implements OnInit {
                   backgroundColor: 'rgba(196, 23, 52, 1)',
                   borderColor: 'rgba(14, 102, 180, 1)',
                   fill: false,
+                  //lineTension: 0
                 },
                
               ]

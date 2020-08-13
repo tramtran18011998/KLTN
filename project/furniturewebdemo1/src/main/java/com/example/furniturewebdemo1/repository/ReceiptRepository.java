@@ -12,12 +12,12 @@ public interface ReceiptRepository extends JpaRepository<Receipt,Long> {
     @Query(value = "select month(r.created_date) as monthreceipt\n" +
             "from receipt r\n" +
             "where  year(r.created_date) = year(curdate())\n" +
-            "group by month(r.created_date);",nativeQuery = true)
+            "group by month(r.created_date) order by month(r.created_date) asc;",nativeQuery = true)
     List<?> revenueStatisticsMonth();
 
     @Query(value = "select sum(r.total) as totalmonth\n" +
             "from receipt r\n" +
             "where  year(r.created_date) = year(curdate())\n" +
-            "group by month(r.created_date);",nativeQuery = true)
+            "group by month(r.created_date) order by month(r.created_date) asc;",nativeQuery = true)
     List<?> revenueStatisticsTotal();
 }
