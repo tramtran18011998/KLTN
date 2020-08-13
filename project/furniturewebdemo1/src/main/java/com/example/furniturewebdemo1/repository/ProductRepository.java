@@ -37,8 +37,13 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     @Query(value = "select p.*,sum(ip.quantity) as tslb from product p inner join invoiceproduct_product ip on p.product_id = ip.product_id group by 1 order by tslb desc limit 0,4",nativeQuery = true)
     List<Product> bestseller();
 
+    @Query(value = "select p.*,sum(ip.quantity) as tslb from product p inner join invoiceproduct_product ip on p.product_id = ip.product_id group by 1 order by tslb desc",nativeQuery = true)
+    List<Product> bestsellershow();
+
     @Query(value = "SELECT * FROM product p ORDER BY p.product_id desc limit 8",nativeQuery = true)
     List<Product> newproduct();
+    @Query(value = "SELECT * FROM product p ORDER BY p.product_id desc",nativeQuery = true)
+    List<Product> newproductshow();
 
     @Query(value = "select p.*,sum(ip.quantity) as tslb from product p inner join invoiceproduct_product ip on p.product_id = ip.product_id group by 1 order by tslb desc limit 0,10",nativeQuery = true)
     List<Product> chartbestseller();

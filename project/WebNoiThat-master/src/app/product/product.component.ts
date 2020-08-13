@@ -298,6 +298,55 @@ export class ProductComponent implements OnInit {
     console.log(id);
   }
 
+  //newproduct
+  showNewProduct(){
+    this.productService.getListNewProShow().subscribe(data => {
+      this.products2 = data;
+        console.log(data);
+        if (data) {
+          this.products = [];
+          this.imgname = [];
+          for (let i = 0; i < this.products2.length; i++) {
+            this.productService.getProductImgByProductIdLimit(this.products2[i].id).subscribe(data1 => {
+
+              if (this.products2[i].id === data1.product.id) {
+                this.products.push(data1.product);
+                this.imgname.push(data1.name);
+                console.log(this.imgname);
+              }
+            })
+          }
+          this.totalProduct = this.products2.length;
+          this.productsPerPage = this.totalProduct;
+
+        }
+    })
+  }
+
+  //bestseller
+  showBestSeller(){
+    this.productService.getListBestSellerShow().subscribe(data => {
+      this.products2 = data;
+        console.log(data);
+        if (data) {
+          this.products = [];
+          this.imgname = [];
+          for (let i = 0; i < this.products2.length; i++) {
+            this.productService.getProductImgByProductIdLimit(this.products2[i].id).subscribe(data1 => {
+
+              if (this.products2[i].id === data1.product.id) {
+                this.products.push(data1.product);
+                this.imgname.push(data1.name);
+                console.log(this.imgname);
+              }
+            })
+          }
+          this.totalProduct = this.products2.length;
+          this.productsPerPage = this.totalProduct;
+
+        }
+    })
+  }
 
   // TÌm kiếmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm sản phẩm
   searchProduct(val) {

@@ -40,8 +40,8 @@
             <div class="filter">
                 <div style="margin-left: 20px;">Sắp xếp theo</div>
                 <button class="filter-btn" (click)="onOptionsSelected(1)">Phổ biến</button>
-                <button class="filter-btn">Mới nhất</button>
-                <button class="filter-btn">Bán chạy</button>
+                <button class="filter-btn" (click)="showNewProduct()">Mới nhất</button>
+                <button class="filter-btn" (click)="showBestSeller()">Bán chạy</button>
                 <div class="dropdown">
                     <!-- <div class="price">
                         <button style="width:200px">Giá

@@ -85,6 +85,16 @@ public class ProductController {
         return productRepository.newproduct();
     }
 
+    @GetMapping("/products/bestsellershow")
+    public List<Product> bestsellershow() {
+        return productRepository.bestsellershow();
+    }
+
+    @GetMapping("/products/newproductshow")
+    public List<Product> newproductshow() {
+        return productRepository.newproductshow();
+    }
+
     @PostMapping("/product/{idtype}/{idsup}")
     public  ResponseEntity<Product> createProduct(@PathVariable(value = "idtype") long idtype,@PathVariable(value = "idsup") long idsup,@Valid @RequestBody Product product) throws ResourceNotFoundException {
 

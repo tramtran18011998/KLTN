@@ -32,6 +32,8 @@ export class ProductService {
   private urlCountBestSellerQuantity = 'https://localhost:8443/api/products/bestquantity';
   private urlChartWorstSeller = 'https://localhost:8443/api/products/chartworstseller';
 
+  private urlBestSellerShow = 'https://localhost:8443/api/products/bestsellershow';
+  private urlNewProShow = 'https://localhost:8443/api/products/newproductshow';
 
 
   private _refresh = new Subject<void>();
@@ -102,6 +104,15 @@ export class ProductService {
 
   getListNewPro(): Observable<any>{
     return this.http.get(`${this.urlNewPro}`, this.options);
+  }
+
+  //for show
+  getListBestSellerShow(): Observable<any>{
+    return this.http.get(`${this.urlBestSellerShow}`, this.options);
+  }
+
+  getListNewProShow(): Observable<any>{
+    return this.http.get(`${this.urlNewProShow}`, this.options);
   }
 
   getListRelated(id: number): Observable<any>{
